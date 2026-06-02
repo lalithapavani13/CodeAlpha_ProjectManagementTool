@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectHub - Board</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2><a href="dashboard.html" class="back-link">← </a>🗂 <span id="projectTitle"></span></h2>
+    <div class="nav-right">
+      <span id="userName"></span>
+      <div class="notif-wrapper">
+        <button class="notif-btn" onclick="toggleNotifications()">🔔 <span id="notifCount" class="badge hidden">0</span></button>
+        <div id="notifDropdown" class="notif-dropdown hidden"></div>
+      </div>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="board-container">
+    <div class="board-header">
+      <h3>Kanban Board</h3>
+      <button class="btn-primary" onclick="openTaskModal()">+ Add Task</button>
+    </div>
+    <div class="kanban-board">
+      <div class="kanban-col">
+        <h4>📋 To Do</h4>
+        <div id="todo" class="task-list"></div>
+      </div>
+      <div class="kanban-col">
+        <h4>⚙️ In Progress</h4>
+        <div id="inprogress" class="task-list"></div>
+      </div>
+      <div class="kanban-col">
+        <h4>✅ Done</h4>
+        <div id="done" class="task-list"></div>
+      </div>
+    </div>
+  </div>
+  <div id="taskModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Add New Task</h3>
+      <input type="text" id="taskTitle" placeholder="Task Title" />
+      <textarea id="taskDesc" placeholder="Description"></textarea>
+      <select id="taskAssign">
+  <option value="">Assign to...</option>
+</select>
+      <div class="modal-btns">
+        <button class="btn-primary" onclick="createTask()">Create</button>
+        <button class="btn-secondary" onclick="closeTaskModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="commentModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Task Comments</h3>
+      <div id="commentsList" class="comments-list"></div>
+      <div class="comment-input">
+        <input type="text" id="commentText" placeholder="Write a comment..." />
+        <button class="btn-primary" onclick="addComment()">Send</button>
+      </div>
+      <button class="btn-secondary" onclick="closeCommentModal()" style="margin-top:10px">Close</button>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/project.js"></script>
+</body>
+</html>

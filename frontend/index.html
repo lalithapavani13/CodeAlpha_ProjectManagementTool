@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectHub - Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>🗂 ProjectHub</h1>
+      <p class="subtitle">Manage your projects efficiently</p>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('login')">Login</button>
+        <button class="tab" onclick="showTab('register')">Register</button>
+      </div>
+      <div id="login" class="form-section">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button class="btn-primary" onclick="login()">Login</button>
+      </div>
+      <div id="register" class="form-section hidden">
+        <input type="text" id="regName" placeholder="Full Name" />
+        <input type="email" id="regEmail" placeholder="Email" />
+        <input type="password" id="regPassword" placeholder="Password" />
+        <button class="btn-primary" onclick="register()">Register</button>
+      </div>
+      <p id="authMsg" class="msg"></p>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

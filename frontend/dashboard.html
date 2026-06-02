@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProjectHub - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h2>🗂 ProjectHub</h2>
+    <div class="nav-right">
+      <span id="userName"></span>
+      <div class="notif-wrapper">
+        <button class="notif-btn" onclick="toggleNotifications()">🔔 <span id="notifCount" class="badge hidden">0</span></button>
+        <div id="notifDropdown" class="notif-dropdown hidden"></div>
+      </div>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h2>My Projects</h2>
+      <button class="btn-primary" onclick="openModal()">+ New Project</button>
+    </div>
+    <div id="projectsList" class="projects-grid"></div>
+  </div>
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Create New Project</h3>
+      <input type="text" id="projectName" placeholder="Project Name" />
+      <textarea id="projectDesc" placeholder="Description"></textarea>
+      <div class="modal-btns">
+        <button class="btn-primary" onclick="createProject()">Create</button>
+        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
